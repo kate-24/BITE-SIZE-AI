@@ -15,7 +15,7 @@ const InputAddress = () => {
             });
             console.log(`env var : ${process.env.REACT_APP_API_URL}`);
             console.log(response);
-            //window.location = "/"; // once response has been sent, it will refresh to show changes
+            window.location = "/"; // once response has been sent, it will refresh to show changes
 
         } catch (err) {
             console.error(err.message);
