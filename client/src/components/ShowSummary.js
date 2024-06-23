@@ -26,22 +26,64 @@ const ShowSummary = () => {
 
   return (
     <Fragment>
-      <h1>Show Bite Summary</h1>
-      {bite ? (
-        <div>
-          <h2>{bite.address}</h2>
-          <p>{bite.summary}</p>
-          {/* Replace with StarRating component */}
-          <StarRating rating={3.5} /> {/* Replace with actual rating */}
-          <div>
-            <p>Number of Reviews: {10}</p> {/* Replace with actual number of reviews */}
-          </div>
+      <div style={styles.container}>
+        <div style={styles.header}>
+          <h1 style={styles.headerText}>Here is your Bite.</h1>
         </div>
-      ) : (
-        <p>Loading bite details...</p>
-      )}
+        {bite ? (
+          <div style={styles.contentContainer}>
+            <div style={styles.summaryContainer}>
+              <h2>{bite.address}</h2>
+              {/* Replace with StarRating component */}
+              <StarRating rating={3.5} /> {/* Replace with actual rating */}
+              <div style={styles.reviews}>
+                <p>Number of Reviews: {10}</p> {/* Replace with actual number of reviews */}
+              </div>
+              <p>{bite.summary}</p>
+            </div>
+          </div>
+        ) : (
+          <p>Loading bite details...</p>
+        )}
+      </div>
     </Fragment>
   );
+};
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    minHeight: '100vh',
+    background: '#f0f0f0', // Background color for the entire page
+    padding: '2rem',
+  },
+  header: {
+    width: '100%',
+    textAlign: 'center',
+    marginBottom: '2rem',
+  },
+  headerText: {
+    fontSize: '2.5rem',
+    fontWeight: 'bold',
+  },
+  contentContainer: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
+  },
+  summaryContainer: {
+    width: '50%', // Takes up half of the container width initially
+    padding: '2rem',
+    background: '#343a40', // Dark background color
+    color: '#ffffff', // Text color
+    borderRadius: '8px', // Rounded corners
+    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.8)', // Box shadow
+  },
+  reviews: {
+    marginTop: '1rem',
+  },
 };
 
 export default ShowSummary;
